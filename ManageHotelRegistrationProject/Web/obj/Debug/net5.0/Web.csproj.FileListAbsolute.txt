@@ -322,11 +322,6 @@ D:\Nadya\It-kariera\Manage Hotel Registration Project\ManageHotelRegistrationPro
 D:\Nadya\It-kariera\Manage Hotel Registration Project\ManageHotelRegistrationProject\Web\obj\Debug\net5.0\Web.pdb
 D:\Nadya\It-kariera\Manage Hotel Registration Project\ManageHotelRegistrationProject\Web\obj\Debug\net5.0\Web.genruntimeconfig.cache
 D:\Nadya\It-kariera\Manage Hotel Registration Project\ManageHotelRegistrationProject\Web\obj\Debug\net5.0\Web.csprojAssemblyReference.cache
-D:\Nadya\It-kariera\Manage Hotel Registration Project\ManageHotelRegistrationProject\Web\obj\Debug\net5.0\Razor\Views\Clients1\Create.cshtml.g.cs
-D:\Nadya\It-kariera\Manage Hotel Registration Project\ManageHotelRegistrationProject\Web\obj\Debug\net5.0\Razor\Views\Clients1\Delete.cshtml.g.cs
-D:\Nadya\It-kariera\Manage Hotel Registration Project\ManageHotelRegistrationProject\Web\obj\Debug\net5.0\Razor\Views\Clients1\Details.cshtml.g.cs
-D:\Nadya\It-kariera\Manage Hotel Registration Project\ManageHotelRegistrationProject\Web\obj\Debug\net5.0\Razor\Views\Clients1\Edit.cshtml.g.cs
-D:\Nadya\It-kariera\Manage Hotel Registration Project\ManageHotelRegistrationProject\Web\obj\Debug\net5.0\Razor\Views\Clients1\Index.cshtml.g.cs
 D:\Nadya\It-kariera\Manage Hotel Registration Project\ManageHotelRegistrationProject\Web\obj\Debug\net5.0\Razor\Views\Reservations\Create.cshtml.g.cs
 D:\Nadya\It-kariera\Manage Hotel Registration Project\ManageHotelRegistrationProject\Web\obj\Debug\net5.0\Razor\Views\Reservations\Delete.cshtml.g.cs
 D:\Nadya\It-kariera\Manage Hotel Registration Project\ManageHotelRegistrationProject\Web\obj\Debug\net5.0\Razor\Views\Reservations\Details.cshtml.g.cs
@@ -353,3 +348,5 @@ D:\Nadya\It-kariera\Manage Hotel Registration Project\ManageHotelRegistrationPro
 D:\Nadya\It-kariera\Manage Hotel Registration Project\ManageHotelRegistrationProject\Web\obj\Debug\net5.0\Razor\Views\Users\Details.cshtml.g.cs
 D:\Nadya\It-kariera\Manage Hotel Registration Project\ManageHotelRegistrationProject\Web\obj\Debug\net5.0\Razor\Views\Users\Edit.cshtml.g.cs
 D:\Nadya\It-kariera\Manage Hotel Registration Project\ManageHotelRegistrationProject\Web\obj\Debug\net5.0\Razor\Views\Users\Index.cshtml.g.cs
+D:\Nadya\It-kariera\Manage Hotel Registration Project\ManageHotelRegistrationProject\Web\bin\Debug\net5.0\Castle.Core.dll
+D:\Nadya\It-kariera\Manage Hotel Registration Project\ManageHotelRegistrationProject\Web\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Proxies.dll

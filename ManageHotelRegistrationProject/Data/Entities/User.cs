@@ -2,20 +2,29 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Text;
 
 namespace Data.Entities
 {
     public class User : IdentityUser<string>
     {
+        [StringLength(50, MinimumLength = 3)]
+        [Required]
         public string FirstName { get; set; }
+        [StringLength(50, MinimumLength = 3)]
+        [Required]
         public string MiddleName { get; set; }
-        public string Surname { get; set; }
+        [StringLength(50, MinimumLength = 3)]
+        [Required]
+        public string Surname { get; set; }    
+        [StringLength(10, MinimumLength = 10)]
+        [Required]
         public string EGN { get; set; }
-        [DisplayName("Date of employment: ")]
+        [Required]
         public DateTime DateOfEmployment { get; set; }
-        public bool IsActive { get; set; }
-        [DisplayName("Date of dismissal: ")]
+        [Required]
+        public bool IsActive { get; set; }     
         public DateTime DateOfDismissal { get; set; }
         public bool IsAdmin { get; set; }
        /* public int ReservationId { get; set; }

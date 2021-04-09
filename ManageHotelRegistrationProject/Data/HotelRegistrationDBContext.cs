@@ -40,7 +40,7 @@ namespace Data
             if(!dbContextOptionsBuilder.IsConfigured)
             {
                 dbContextOptionsBuilder.UseSqlServer(@"Server=(localdb)\MSSQLLocalDB;Database=HotelRegistrationDb; Integrated Security = true;");
-              //  dbContextOptionsBuilder.UseLazyLoadingProxies();
+                dbContextOptionsBuilder.UseLazyLoadingProxies();
             }
         }
     }
