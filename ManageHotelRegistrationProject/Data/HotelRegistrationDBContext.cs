@@ -37,8 +37,11 @@ namespace Data
 
         protected override void OnConfiguring(DbContextOptionsBuilder dbContextOptionsBuilder)
         {
-            dbContextOptionsBuilder.UseSqlServer(@"Server=(localdb)\MSSQLLocalDB;Database=HotelRegistrationDb; Integrated Security = true;");
-            dbContextOptionsBuilder.UseLazyLoadingProxies();
+            if(!dbContextOptionsBuilder.IsConfigured)
+            {
+                dbContextOptionsBuilder.UseSqlServer(@"Server=(localdb)\MSSQLLocalDB;Database=HotelRegistrationDb; Integrated Security = true;");
+              //  dbContextOptionsBuilder.UseLazyLoadingProxies();
+            }
         }
     }
 }

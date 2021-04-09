@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Nadya\\It-kariera\\ManageHotelRegistrationProject\\Data\\Data.csproj": {}
+    "D:\\Nadya\\It-kariera\\Manage Hotel Registration Project\\ManageHotelRegistrationProject\\Data\\Data.csproj": {}
   },
   "projects": {
-    "D:\\Nadya\\It-kariera\\ManageHotelRegistrationProject\\Data\\Data.csproj": {
+    "D:\\Nadya\\It-kariera\\Manage Hotel Registration Project\\ManageHotelRegistrationProject\\Data\\Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Nadya\\It-kariera\\ManageHotelRegistrationProject\\Data\\Data.csproj",
+        "projectUniqueName": "D:\\Nadya\\It-kariera\\Manage Hotel Registration Project\\ManageHotelRegistrationProject\\Data\\Data.csproj",
         "projectName": "Data",
-        "projectPath": "D:\\Nadya\\It-kariera\\ManageHotelRegistrationProject\\Data\\Data.csproj",
+        "projectPath": "D:\\Nadya\\It-kariera\\Manage Hotel Registration Project\\ManageHotelRegistrationProject\\Data\\Data.csproj",
         "packagesPath": "C:\\Users\\Kaloyan\\.nuget\\packages\\",
-        "outputPath": "D:\\Nadya\\It-kariera\\ManageHotelRegistrationProject\\Data\\obj\\",
+        "outputPath": "D:\\Nadya\\It-kariera\\Manage Hotel Registration Project\\ManageHotelRegistrationProject\\Data\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -48,10 +48,6 @@
               "version": "[5.0.5, )"
             },
             "Microsoft.EntityFrameworkCore": {
-              "target": "Package",
-              "version": "[5.0.5, )"
-            },
-            "Microsoft.EntityFrameworkCore.Proxies": {
               "target": "Package",
               "version": "[5.0.5, )"
             },

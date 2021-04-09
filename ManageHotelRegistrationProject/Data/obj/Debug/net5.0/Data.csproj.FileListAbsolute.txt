@@ -13,3 +13,17 @@ D:\Nadya\It-kariera\ManageHotelRegistrationProject\Data\obj\Debug\net5.0\Data.dl
 D:\Nadya\It-kariera\ManageHotelRegistrationProject\Data\obj\Debug\net5.0\ref\Data.dll
 D:\Nadya\It-kariera\ManageHotelRegistrationProject\Data\obj\Debug\net5.0\Data.pdb
 D:\Nadya\It-kariera\ManageHotelRegistrationProject\Data\obj\Debug\net5.0\Data.genruntimeconfig.cache
+D:\Nadya\It-kariera\Manage Hotel Registration Project\ManageHotelRegistrationProject\Data\bin\Debug\net5.0\Data.deps.json
+D:\Nadya\It-kariera\Manage Hotel Registration Project\ManageHotelRegistrationProject\Data\bin\Debug\net5.0\Data.runtimeconfig.json
+D:\Nadya\It-kariera\Manage Hotel Registration Project\ManageHotelRegistrationProject\Data\bin\Debug\net5.0\Data.runtimeconfig.dev.json
+D:\Nadya\It-kariera\Manage Hotel Registration Project\ManageHotelRegistrationProject\Data\bin\Debug\net5.0\Data.dll
+D:\Nadya\It-kariera\Manage Hotel Registration Project\ManageHotelRegistrationProject\Data\bin\Debug\net5.0\ref\Data.dll
+D:\Nadya\It-kariera\Manage Hotel Registration Project\ManageHotelRegistrationProject\Data\bin\Debug\net5.0\Data.pdb
+D:\Nadya\It-kariera\Manage Hotel Registration Project\ManageHotelRegistrationProject\Data\obj\Debug\net5.0\Data.GeneratedMSBuildEditorConfig.editorconfig
+D:\Nadya\It-kariera\Manage Hotel Registration Project\ManageHotelRegistrationProject\Data\obj\Debug\net5.0\Data.AssemblyInfoInputs.cache
+D:\Nadya\It-kariera\Manage Hotel Registration Project\ManageHotelRegistrationProject\Data\obj\Debug\net5.0\Data.AssemblyInfo.cs
+D:\Nadya\It-kariera\Manage Hotel Registration Project\ManageHotelRegistrationProject\Data\obj\Debug\net5.0\Data.csproj.CoreCompileInputs.cache
+D:\Nadya\It-kariera\Manage Hotel Registration Project\ManageHotelRegistrationProject\Data\obj\Debug\net5.0\Data.dll
+D:\Nadya\It-kariera\Manage Hotel Registration Project\ManageHotelRegistrationProject\Data\obj\Debug\net5.0\ref\Data.dll
+D:\Nadya\It-kariera\Manage Hotel Registration Project\ManageHotelRegistrationProject\Data\obj\Debug\net5.0\Data.pdb
+D:\Nadya\It-kariera\Manage Hotel Registration Project\ManageHotelRegistrationProject\Data\obj\Debug\net5.0\Data.genruntimeconfig.cache
