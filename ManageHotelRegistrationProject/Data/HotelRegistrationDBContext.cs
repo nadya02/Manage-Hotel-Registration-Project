@@ -8,7 +8,7 @@ namespace Data
 {
     public class HotelRegistrationDBContext : IdentityDbContext<User, IdentityRole, string>
     {
-        public virtual DbSet<User> User { get; set; }
+        //public virtual DbSet<User> User { get; set; }
         public virtual DbSet<Client> Client { get; set; }
         public virtual DbSet<Room> Room { get; set; }
         public virtual DbSet<Reservation> Reservation { get; set; }

@@ -1,87 +1,153 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
+using Data;
+using Data.Entities;
 
 namespace Web.Controllers
 {
     public class ClientsController : Controller
     {
-        // GET: ClientsController
-        public ActionResult Index()
+        private readonly HotelRegistrationDBContext _context;
+
+        public ClientsController()
+        {
+            _context = new HotelRegistrationDBContext();
+        }
+
+        // GET: Clients
+        public async Task<IActionResult> Index()
+        {
+            return View(await _context.Client.ToListAsync());
+        }
+
+        // GET: Clients/Details/5
+        public async Task<IActionResult> Details(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var client = await _context.Client
+                .FirstOrDefaultAsync(m => m.Id == id);
+            if (client == null)
+            {
+                return NotFound();
+            }
+
+            return View(client);
+        }
+
+        // GET: Clients/Create
+        public IActionResult Create()
         {
             return View();
         }
 
-        // GET: ClientsController/Details/5
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
-
-        // GET: ClientsController/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: ClientsController/Create
+        // POST: Clients/Create
+        // To protect from overposting attacks, enable the specific properties you want to bind to.
+        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public async Task<IActionResult> Create([Bind("FirstName,Surname,PhoneNumber,Email,IsAdult,Id")] Client client)
         {
-            try
+            if (ModelState.IsValid)
             {
+                _context.Add(client);
+                await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            catch
-            {
-                return View();
-            }
+            return View(client);
         }
 
-        // GET: ClientsController/Edit/5
-        public ActionResult Edit(int id)
+        // GET: Clients/Edit/5
+        public async Task<IActionResult> Edit(int? id)
         {
-            return View();
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var client = await _context.Client.FindAsync(id);
+            if (client == null)
+            {
+                return NotFound();
+            }
+            return View(client);
         }
 
-        // POST: ClientsController/Edit/5
+        // POST: Clients/Edit/5
+        // To protect from overposting attacks, enable the specific properties you want to bind to.
+        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public async Task<IActionResult> Edit(int id, [Bind("FirstName,Surname,PhoneNumber,Email,IsAdult,Id")] Client client)
         {
-            try
+            if (id != client.Id)
             {
+                return NotFound();
+            }
+
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    _context.Update(client);
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!ClientExists(client.Id))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
                 return RedirectToAction(nameof(Index));
             }
-            catch
-            {
-                return View();
-            }
+            return View(client);
         }
 
-        // GET: ClientsController/Delete/5
-        public ActionResult Delete(int id)
+        // GET: Clients/Delete/5
+        public async Task<IActionResult> Delete(int? id)
         {
-            return View();
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var client = await _context.Client
+                .FirstOrDefaultAsync(m => m.Id == id);
+            if (client == null)
+            {
+                return NotFound();
+            }
+
+            return View(client);
         }
 
-        // POST: ClientsController/Delete/5
-        [HttpPost]
+        // POST: Clients/Delete/5
+        [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            var client = await _context.Client.FindAsync(id);
+            _context.Client.Remove(client);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+        }
+
+        private bool ClientExists(int id)
+        {
+            return _context.Client.Any(e => e.Id == id);
         }
     }
 }
