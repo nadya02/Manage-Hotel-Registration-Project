@@ -17,7 +17,6 @@ using Microsoft.Extensions.Logging;
 
 namespace Web.Areas.Identity.Pages.Account
 {
-    [AllowAnonymous]
     public class RegisterModel : PageModel
     {
         private readonly SignInManager<User> _signInManager;
@@ -39,9 +38,30 @@ namespace Web.Areas.Identity.Pages.Account
         public class InputModel
         {
             [Required]
+            [Display(Name = "First Name")]
+            public string FirstName { get; set; }   
+            [Required]
+            [Display(Name = "Middle Name")]
+            public string MiddleName { get; set; } 
+            [Required]
+            [Display(Name = "Surame")]
+            public string SurName { get; set; }   
+            [Required]
             [EmailAddress]
             [Display(Name = "Email")]
-            public string Email { get; set; }
+            public string Email { get; set; }  
+            [Required]
+            [Display(Name = "Username")]
+            public string UserName { get; set; }
+            [Required]
+            [StringLength(10, MinimumLength = 10)]
+            [Display(Name = "EGN")]
+            public string EGN { get; set; }
+            [Required]
+            [Phone]
+            [StringLength(10, MinimumLength = 10)]
+            [Display(Name = "Phone number")]
+            public string PhoneNumber { get; set; } 
 
             [Required]
             [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 6)]
@@ -61,18 +81,30 @@ namespace Web.Areas.Identity.Pages.Account
             //ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
         }
 
+        [Authorize(Policy = "RequireAdministratorRole")]
         public async Task<IActionResult> OnPostAsync(string returnUrl = null)
         {
             returnUrl ??= Url.Content("~/");
             
             if (ModelState.IsValid)
             {
-                var user = new User {Id = new Guid().ToString(), UserName = Input.Email, Email = Input.Email };
+                var user = new User {Id = new Guid().ToString(), FirstName = Input.FirstName, MiddleName = Input.MiddleName
+                , Surname = Input.SurName, Email = Input.Email, UserName = Input.UserName, EGN = Input.EGN
+                , PhoneNumber = Input.PhoneNumber, IsActive = true
+                };
                 var result = await _userManager.CreateAsync(user, Input.Password);
                 if (result.Succeeded)
-                {           
-                     await _signInManager.SignInAsync(user, isPersistent: false);
-                     return LocalRedirect(returnUrl);
+                {     
+                   /* if(this._userManager.Users.Count() == 1)
+                    {
+                        await _userManager.AddToRoleAsync(user, "Admin");
+                    }
+                    else
+                    {
+                        await _userManager.AddToRoleAsync(user, "Employee");
+                    }*/
+                    await _signInManager.SignInAsync(user, isPersistent: false);
+                    return LocalRedirect(returnUrl);
                 }
                 foreach (var error in result.Errors)
                 {

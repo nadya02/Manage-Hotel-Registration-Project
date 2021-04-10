@@ -1,5 +1,6 @@
 using Data;
 using Data.Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -12,6 +13,7 @@ using Microsoft.Extensions.Hosting;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace Web
@@ -41,7 +43,7 @@ namespace Web
                 options.Password.RequireUppercase = false;
                 options.Password.RequiredUniqueChars = 0;
             })
-
+            .AddRoles<IdentityRole>()
            .AddEntityFrameworkStores<HotelRegistrationDBContext>();
             services.AddControllersWithViews();
             services.AddRazorPages();

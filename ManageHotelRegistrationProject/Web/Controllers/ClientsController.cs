@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Data;
 using Data.Entities;
+using Web.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Web.Controllers
 {
@@ -20,10 +22,46 @@ namespace Web.Controllers
         }
 
         // GET: Clients
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string sortOrder)
         {
-            return View(await _context.Client.ToListAsync());
+            ViewData["NameSortParm"] = String.IsNullOrEmpty(sortOrder) ? "First Name" : "";
+            ViewData["DateSortParm"] = sortOrder == "Surname" ? "date_desc" : "Date";
+            var students = from s in _context.Client
+                           select s;
+            switch (sortOrder)
+            {
+                case "First Name":
+                    students = students.OrderByDescending(s => s.FirstName);
+                    break;
+                case "Surname":
+                    students = students.OrderBy(s => s.FirstName);
+                    break;
+                default:
+                    students = students.OrderBy(s => s.Surname);
+                    break;
+            }
+            return View(await students.AsNoTracking().ToListAsync());
         }
+        /* public async Task<IActionResult> Index(ClientIndex model)
+         {
+             int PageSize = 10;
+             model.Pager ??= new PagerViewModel();
+             model.Pager.CurrentPage = model.Pager.CurrentPage <= 0 ? 1 : model.Pager.CurrentPage;
+             List<Client1> items = await _context.Client.Skip((model.Pager.CurrentPage - 1) * PageSize).Take(PageSize).Select(p => new Client1()
+             {
+                 Id =p.Id,
+                 FirstName = p.FirstName,
+                 Surname = p.Surname,
+                 PhoneNumber = p.PhoneNumber,
+                 Email = p.Email,
+                 IsAdult = p.IsAdult,
+                 Reservations = p.Reservations
+             }).ToListAsync();
+             model.Items = items;
+             model.Pager.PagesCount = (int)Math.Ceiling(await _context.Client.CountAsync() / (double)PageSize);
+             return View(model);
+         }*/
+
 
         // GET: Clients/Details/5
         public async Task<IActionResult> Details(int? id)

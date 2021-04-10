@@ -27,3 +27,4 @@ D:\Nadya\It-kariera\Manage Hotel Registration Project\ManageHotelRegistrationPro
 D:\Nadya\It-kariera\Manage Hotel Registration Project\ManageHotelRegistrationProject\Data\obj\Debug\net5.0\ref\Data.dll
 D:\Nadya\It-kariera\Manage Hotel Registration Project\ManageHotelRegistrationProject\Data\obj\Debug\net5.0\Data.pdb
 D:\Nadya\It-kariera\Manage Hotel Registration Project\ManageHotelRegistrationProject\Data\obj\Debug\net5.0\Data.genruntimeconfig.cache
+D:\Nadya\It-kariera\Manage Hotel Registration Project\ManageHotelRegistrationProject\Data\obj\Debug\net5.0\Data.csprojAssemblyReference.cache
