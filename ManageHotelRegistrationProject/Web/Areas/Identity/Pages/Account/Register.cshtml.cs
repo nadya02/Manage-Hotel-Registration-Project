@@ -88,7 +88,7 @@ namespace Web.Areas.Identity.Pages.Account
             
             if (ModelState.IsValid)
             {
-                var user = new User {Id = new Guid().ToString(), FirstName = Input.FirstName, MiddleName = Input.MiddleName
+                var user = new User {Id = Guid.NewGuid().ToString(), FirstName = Input.FirstName, MiddleName = Input.MiddleName
                 , Surname = Input.SurName, Email = Input.Email, UserName = Input.Email, EGN = Input.EGN
                 , PhoneNumber = Input.PhoneNumber, IsActive = true
                 };
