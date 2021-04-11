@@ -75,13 +75,13 @@ namespace Web.Areas.Identity.Pages.Account
             public string ConfirmPassword { get; set; }
         }
 
-        public async Task OnGetAsync(string returnUrl = null)
+        public Task OnGetAsync(string returnUrl = null)
         {
             ReturnUrl = returnUrl;
+            return Task.CompletedTask;
             //ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
         }
 
-        [Authorize(Policy = "RequireAdministratorRole")]
         public async Task<IActionResult> OnPostAsync(string returnUrl = null)
         {
             returnUrl ??= Url.Content("~/");
@@ -89,7 +89,7 @@ namespace Web.Areas.Identity.Pages.Account
             if (ModelState.IsValid)
             {
                 var user = new User {Id = new Guid().ToString(), FirstName = Input.FirstName, MiddleName = Input.MiddleName
-                , Surname = Input.SurName, Email = Input.Email, UserName = Input.UserName, EGN = Input.EGN
+                , Surname = Input.SurName, Email = Input.Email, UserName = Input.Email, EGN = Input.EGN
                 , PhoneNumber = Input.PhoneNumber, IsActive = true
                 };
                 var result = await _userManager.CreateAsync(user, Input.Password);

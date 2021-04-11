@@ -43,8 +43,9 @@ namespace Web
                 options.Password.RequireUppercase = false;
                 options.Password.RequiredUniqueChars = 0;
             })
-            .AddRoles<IdentityRole>()
-           .AddEntityFrameworkStores<HotelRegistrationDBContext>();
+           .AddEntityFrameworkStores<HotelRegistrationDBContext>()
+           .AddDefaultTokenProviders()
+           .AddDefaultUI();
             services.AddControllersWithViews();
             services.AddRazorPages();
         }

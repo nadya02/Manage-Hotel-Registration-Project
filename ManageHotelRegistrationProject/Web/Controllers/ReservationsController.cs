@@ -12,7 +12,7 @@ using Web.Models;
 
 namespace Web.Controllers
 {
-    [Authorize(Roles = "Administrator, Employees")]
+    [AllowAnonymous]
     public class ReservationsController : Controller
     {
         private readonly HotelRegistrationDBContext _context;
@@ -84,8 +84,14 @@ namespace Web.Controllers
         {
             if (ModelState.IsValid)
             {
+                Room room = _context.Room.Find(reservation.RoomId);
+                double cost = (reservation.DateOfLeaving - reservation.DateOfArrival).TotalDays * (reservation.Clients.Count(c => c.IsAdult == true) * room.PriceForAdults + reservation.Clients.Count(c => c.IsAdult == false) * room.PriceForKids
+                       + ((reservation.IsIncludedBreakfast == true) ? 1 : 0) + ((reservation.IsIncludedBreakfast == true) ? 3 : 0));
+                reservation.FinalPrice = cost;
+
                 _context.Add(reservation);
                 await _context.SaveChangesAsync();
+
                 return RedirectToAction(nameof(Index));
             }
             ViewData["RoomId"] = new SelectList(_context.Room, "Id", "Id", reservation.RoomId);
